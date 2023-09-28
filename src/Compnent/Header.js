@@ -5,7 +5,8 @@ import url_api from "../api/url_api";
 
 function Header(props) {
     const cookies = get_cookie("cookies_cerveau");
-    // if (!cookies) window.location.href = "/login";
+    if(!cookies) window.location.href = "/login";
+    
     const [QRcodeState, QRcodeSetState] = useState([]);
 
     useEffect(() => {

@@ -4,6 +4,9 @@ import { get_cookie } from "../cookies/cookies";
 
 
 function FormTransaction(props){
+    const cookies = get_cookie("cookies_cerveau");
+    if(!cookies) window.location.href = "/login";
+
     const [fraisState, fraisSetState] = useState({});
     
     useEffect(()=>{
@@ -12,9 +15,8 @@ function FormTransaction(props){
         .then(success=>{
             if(success.frais) fraisSetState(success.frais);
         })
-    }, [])
-    const cookies = get_cookie("cookies_cerveau");
-    if(!cookies) return window.location.href = "/login";
+    }, []);
+    
     const portefeuil = props.portefeuil;
     // const frais = props.frais;
     const chaine = "AZERTYUIOPQSDFGHJKLMWXCVBN0123456789";

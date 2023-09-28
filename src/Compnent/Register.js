@@ -2,7 +2,8 @@ import url_api from "../api/url_api";
 import { get_cookie } from "../cookies/cookies";
 
 function Register(props) {
-    if(get_cookie("cookies_cerveau")) return window.location.href = "/accueil";
+    const cookies = get_cookie("cookies_cerveau");
+    if(cookies) window.location.href = "/portefeuil";
     const sendEmali=eventClick=>{
         const formData = new FormData();
         const button_event = eventClick.target;

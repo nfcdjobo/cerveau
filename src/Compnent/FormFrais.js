@@ -5,7 +5,8 @@ import { get_cookie } from "../cookies/cookies";
 
 function FormFrais(props){
     const cookies = get_cookie("cookies_cerveau");
-    if(!cookies) return window.location.href = "/login";
+    if(!cookies) window.location.href = "/login";
+    
 
     fetch(url_api+"getAllFees")
     .then(res=>res.json())

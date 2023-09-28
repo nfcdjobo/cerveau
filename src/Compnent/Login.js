@@ -3,7 +3,8 @@ import { get_cookie, save_cookie } from "../cookies/cookies";
 
 
 function Login(props) {
-    if(get_cookie("cookies_cerveau")) return window.location.href = "/accueil";
+    const cookies = get_cookie("cookies_cerveau");
+    if(cookies) window.location.href = "/portefeuil";
     const savin_login=event=>{
         event.preventDefault();
         const login=event.target.querySelector(".login");
@@ -33,6 +34,7 @@ function Login(props) {
         })
         .then(res=>res.json())
         .then(success=>{
+            console.log("-----------------------------------------", success)
             if(success.message){
                 allInput.forEach(input=>{input.disabled=false; input.hidden=false});
                 message.innerHTML = success.message;

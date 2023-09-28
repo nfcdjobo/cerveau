@@ -8,6 +8,7 @@ import url_api from "../api/url_api";
 function HistoriqueTransaction(props){
     const cookies = get_cookie("cookies_cerveau");
     if(!cookies) window.location.href = "/login";
+    
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
     const [myTransactionState, myTransactionSetState] = useState({});
