@@ -1,0 +1,71 @@
+#solde, #historique{
+    border: 1px solid #36bea6;
+    margin: 1rem;
+    box-shadow: 1px 1px 1px 1px gray;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+#solde:hover, #historique:hover{
+    border: 1px solid gray;
+    box-shadow: 1px 1px 1px 1px #36bea6;
+    background-color: rgb(104, 147, 232);
+    color: white;
+    cursor: pointer;
+    animation: animate 1s ease;
+}
+
+#historique a{
+    text-decoration: none;
+    color: #6c757d;
+}
+
+#historique a:hover{
+    text-decoration: none;
+    color: #fff;
+}
+
+.somme-compte{
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+@keyframes animate {
+	0%{
+		transform: translateX(5px);
+	}
+	25%{
+		transform: translateX(-5px);
+	}
+	50%{
+		transform: translateX(5px);
+	}
+	75%{
+		transform: translateX(-5px);
+	}
+	100%{
+		transform: translateX(0px);
+	}
+}
+
+#solde .card-body.text-center,
+#historique .card-body.text-center{
+    font-weight: bolder;
+}
+
+#card-body{
+    margin: 0 auto;
+    width: 150px; height: 150px;
+
+}
+
+canvas#qr-code{
+    text-align: center;
+    width: 150px; height: 150px;
+    margin: 0 auto;
+    border: 1px solid rgb(255, 0, 0);
+
+}
+
+
+
