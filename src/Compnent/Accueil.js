@@ -16,11 +16,11 @@ function Accueil(props){
                     <div className="page-breadcrumb">
                         <div className="row align-items-center">
                             <div className="col-5">
-                                <h4 className="page-title">Accueil</h4>
+                                <h4 className="page-title">Profile</h4>
                                 <div className="d-flex align-items-center">
                                     <nav aria-label="breadcrumb">
                                         <ol className="breadcrumb">
-                                            <li className="breadcrumb-item active" aria-current="page">Accueil</li>
+                                            <li className="breadcrumb-item active" aria-current="page">Profile</li>
                                         </ol>
                                     </nav>
                                 </div>

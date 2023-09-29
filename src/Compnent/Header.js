@@ -38,14 +38,14 @@ function Header(props) {
             <header className="topbar" data-navbarbg="skin5">
                 <nav className="navbar top-navbar navbar-expand-md navbar-dark">
                     <div className="navbar-header" data-logobg="skin5">
-                        <a className="navbar-brand" href="/portefeuil">
+                        <a className="navbar-brand" href="/profile">
                             <b className="logo-icon">
                                 <img src="https://m.media-amazon.com/images/I/61NN9SlsuuL._SX522_.jpg" alt="homepage" className="light-logo" />
                             </b>
                             <span className="logo-text">
                             </span>
                         </a>
-                        <a className="nav-toggler waves-effect waves-light d-block d-md-none" href="/portefeuil">
+                        <a className="nav-toggler waves-effect waves-light d-block d-md-none" href="/profile">
                             <i className="ti-menu ti-close"></i>
                         </a>
                     </div>
@@ -122,6 +122,14 @@ function Header(props) {
                                     <i className="mdi mdi-move-resize-variant"></i>
                                     <span className="hide-menu">Historique de Réception</span>
                                 </a>
+                            </li>
+                            <hr/>
+                            <li className="sidebar-item">
+                            <div>USERNAME2: <span>bokafranck2001@gmail.com</span></div>
+                            <div>Mot de passe: <span>00000000</span></div>
+                            <div>Code validation: <span>187673167920021719340253701775</span></div>
+                            <div>Numero Compte: <span>PQ4ZQ9TRW3KTZOOB98SE94NSJ64M7T</span></div>
+
                             </li>
                         </ul>
                     </nav>

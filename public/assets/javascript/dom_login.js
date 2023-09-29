@@ -23,8 +23,8 @@ window.addEventListener("load", ev => {
             if (!_option) return false;
         });
 
-        if (window.location.href.includes("accueil") || window.location.href.includes("profile") || window.location.href.includes("historiqueTransaction") || window.location.href.includes("historiqueReception")) {
-
+        if (window.location.href.includes("profile") || window.location.href.includes("historiqueTransaction") || window.location.href.includes("historiqueReception")) {
+           
             // const xValues = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160];
             // const xValues = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
             let dataTransaction = [0,0,0,0,0,0,0];
@@ -51,7 +51,6 @@ window.addEventListener("load", ev => {
             let cinqR = [];
             let sixR = [];
             let septR = [];
-
             moment.locale("fr");
             const today = new Date();
             const xValues = [];
@@ -66,7 +65,7 @@ window.addEventListener("load", ev => {
             })
                 .then(res => res.json())
                 .then(success => {
-                    dataTransaction = []
+                    dataTransaction = [];
                     if (success.virement.length) {
                         
                         filterTransaction = success.virement.filter(item => (today - 6 * 24 * 60 * 60 * 1000) <= new Date(item.created_at) && new Date(item.created_at) < today);
@@ -93,7 +92,62 @@ window.addEventListener("load", ev => {
                         })
                         .then(res => res.json())
                         .then(resultat => {
+                            console.log("********************************",resultat, "...........................")
                             if (resultat.virement.length) {
+                                filteReception = resultat.virement.filter(item => (today - 6 * 24 * 60 * 60 * 1000) <= new Date(item.created_at) && new Date(item.created_at) < today);
+
+                                premiereR = filteReception.filter(item => new Date(item.created_at).getDay() === 0);
+                                deuxR = filteReception.filter(item => new Date(item.created_at).getDay() === 1)
+                                troisR = filteReception.filter(item => new Date(item.created_at).getDay() === 2)
+                                quatreR = filteReception.filter(item => new Date(item.created_at).getDay() === 3)
+                                cinqR = filteReception.filter(item => new Date(item.created_at).getDay() === 4)
+                                sixR = filteReception.filter(item => new Date(item.created_at).getDay() === 5)
+                                septR = filteReception.filter(item => new Date(item.created_at).getDay() === 6);
+                                
+                                myReceptions.push(premiereR.length ? (premiereR.length>1 ? premiereR.reduce((a, b) => a.montant + b.montant): premiereR[0].montant) : 0);
+                                myReceptions.push(deuxR.length ?  (deuxR.length>1 ? deuxR.reduce((a, b) => a.montant + b.montant): deuxR[0].montant) : 0);
+                                myReceptions.push(troisR.length ?  (troisR.length>1 ? troisR.reduce((a, b) => a.montant + b.montant): troisR[0].montant) : 0);
+                                myReceptions.push(quatreR.length ?  (quatreR.length>1 ? quatreR.reduce((a, b) => a.montant + b.montant): quatreR[0].montant) : 0);
+                                myReceptions.push(cinqR.length ?  (cinqR.length>1 ? cinqR.reduce((a, b) => a.montant + b.montant): cinqR[0].montant) : 0);
+                                myReceptions.push(sixR.length ?  (sixR.length>1 ? sixR.reduce((a, b) => a.montant + b.montant): sixR[0].montant) : 0);
+                                myReceptions.push(septR.length ?  (septR.length>1 ? septR.reduce((a, b) => a.montant + b.montant): septR[0].montant) : 0);
+                                new Chart("myChart", {
+                                    type: "line",
+                                    data: {
+                                        labels: xValues,
+                                        datasets: [
+                                            {
+                                                label: "Transaction",
+                                                data: myTransactions,
+                                                borderColor: "red",
+                                                fill: false
+                                            },
+                                            {
+                                                label: "Réception",
+                                                data: myReceptions,
+                                                borderColor: "blue",
+                                                fill: false
+                                            }
+                                        ]
+                                    },
+                                    options: {
+                                        legend: {
+                                            display: true,
+                                            position: "bottom",
+                                            labels: {
+                                                fontColor: "#000080",
+                                            }
+                                        },
+                                        scales: {
+                                            yAxes: [{
+                                                ticks: {
+                                                    beginAtZero: true
+                                                }
+                                            }]
+                                        }
+                                    }
+                                });
+                            }else{
                                 filteReception = resultat.virement.filter(item => (today - 6 * 24 * 60 * 60 * 1000) <= new Date(item.created_at) && new Date(item.created_at) < today);
 
                                 premiereR = filteReception.filter(item => new Date(item.created_at).getDay() === 0);
@@ -154,12 +208,12 @@ window.addEventListener("load", ev => {
                             method: "GET",
                             headers: { Authorization: tokenners }
                         })
-                            .then(res => res.json())
-                            .then(resultat => {
-                                if (resultat.virement.length) {
-
-                                }
-                            })
+                        .then(res => res.json())
+                        .then(resultat => {
+                            if (resultat.virement.length) {
+                                filterTransaction = success.virement.filter(item => (today - 6 * 24 * 60 * 60 * 1000) <= new Date(item.created_at) && new Date(item.created_at) < today);
+                            }
+                        })
                     }
                 })
 

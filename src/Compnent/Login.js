@@ -4,7 +4,7 @@ import { get_cookie, save_cookie } from "../cookies/cookies";
 
 function Login(props) {
     const cookies = get_cookie("cookies_cerveau");
-    if(cookies) window.location.href = "/portefeuil";
+    if(cookies) window.location.href = "/profile";
     const savin_login=event=>{
         event.preventDefault();
         const login=event.target.querySelector(".login");
@@ -80,7 +80,12 @@ function Login(props) {
                 </div>
                 <div className="message" hidden>2145</div>
             </fieldset>
+
+            <div>USERNAME: <span>nfcdjobo@gmail.com</span></div>
+            <div>Mot de passe: <span>nfcDJ0B0@</span></div>
+            <div>Code validation: <span>704045812743407340738038417456</span></div>
         </form>
+    
     )
 }
 

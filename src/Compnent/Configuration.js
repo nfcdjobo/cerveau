@@ -29,7 +29,7 @@ function Configuration(props){
                                 <div className="d-flex align-items-center">
                                     <nav aria-label="breadcrumb">
                                         <ol className="breadcrumb">
-                                            <li className="breadcrumb-item active" aria-current="page"><a href="/accueil">Accueil</a></li>
+                                            <li className="breadcrumb-item active" aria-current="page"><a href="/profile">Profile</a></li>
                                             <li className="breadcrumb-item active" aria-current="page">Configuration</li>
                                         </ol>
                                     </nav>

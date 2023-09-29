@@ -3,7 +3,7 @@ import { get_cookie } from "../cookies/cookies";
 
 function Register(props) {
     const cookies = get_cookie("cookies_cerveau");
-    if(cookies) return window.location.href = "/portefeuil";
+    if(cookies) return window.location.href = "/profile";
     const sendEmali=eventClick=>{
         const formData = new FormData();
         const button_event = eventClick.target;

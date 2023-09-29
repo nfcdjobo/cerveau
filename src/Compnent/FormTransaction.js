@@ -169,7 +169,7 @@ function FormTransaction(props){
                 <div className="row">
                 <div className="col-lg-12" id="rapport-transaction">
                 <div class="rapport-message">
-                Vous avez effectué un transaction de <strong>${result.montant} FCFA</strong> au <strong>${result.numero_compteBeneficiaire}</strong>  donc le pour priétaire <strong>Madame/ Monsieur ${result.nomPrenomBeneficiaire}.</strong>
+                Vous avez effectué un transaction de <strong>${result.montant} FCFA</strong> au <strong>${result.numero_compteBeneficiaire}</strong>  donc le propriétaire <strong>Madame/ Monsieur ${result.nomPrenomBeneficiaire}.</strong>
                 Votre solde actuel est de <strong>${result.nouveauSolde} FCFA</strong><br/>
                 Date et heure de transaction : <strong>${result.dateVirement}</strong><br/>
                 Référence de transaction ; <strong>${result.reference}</strong></div>
