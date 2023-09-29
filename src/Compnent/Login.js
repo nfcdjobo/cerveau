@@ -1,7 +1,6 @@
 import url_api from "../api/url_api";
 import { get_cookie, save_cookie } from "../cookies/cookies";
 
-
 function Login(props) {
     const cookies = get_cookie("cookies_cerveau");
     if(cookies) window.location.href = "/profile";
@@ -24,9 +23,10 @@ function Login(props) {
         });
 
         if(!_option) return;
+        allInput.forEach(input=>{input.disabled=true; input.hidden=true});
 
         allInput.forEach(input=>input.disabled=true);
-        submit.classList.add("none")
+        submit.classList.add("none");
         submit.style.cursor="wait";
         fetch(url_api+"login", {
             method:"POST",
@@ -41,14 +41,14 @@ function Login(props) {
                 message.hidden = false;
                 submit.style.cursor="pointer";
                 submit.classList.remove("none");
-                console.log(submit.hidden)
+                console.log(submit.hidden);
                 message.classList.remove("success");
                 message.classList.add("error");
-            }else{
+            }else if(success.portefeuil){
                 console.log(success)
                 allInput.forEach(input=>{input.disabled=false; input.hidden=true});
-                submit.classList.remove("block")
-                submit.classList.add("none")
+                submit.classList.remove("block");
+                submit.classList.add("none");
                 message.hidden = false;
                 message.innerHTML = "Connexion réussie !";
                 h2.innerHTML = "FELICITATION";
@@ -59,6 +59,15 @@ function Login(props) {
                 setTimeout(() => {
                     window.location.href = "/profile";
                 }, 3000);
+            }else{
+                allInput.forEach(input=>{input.disabled=false; input.hidden=false});
+                message.innerHTML = success.message;
+                message.hidden = false;
+                submit.style.cursor="pointer";
+                submit.classList.remove("none");
+                console.log(submit.hidden);
+                message.classList.remove("success");
+                message.classList.add("error");
             }
         })
     }
