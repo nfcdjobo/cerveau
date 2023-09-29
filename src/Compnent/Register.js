@@ -5,7 +5,6 @@ function Register(props) {
     const cookies = get_cookie("cookies_cerveau");
     if(cookies) return window.location.href = "/portefeuil";
     const sendEmali=eventClick=>{
-        alert()
         const formData = new FormData();
         const button_event = eventClick.target;
         button_event.hidden=true;
