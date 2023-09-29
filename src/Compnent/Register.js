@@ -3,8 +3,9 @@ import { get_cookie } from "../cookies/cookies";
 
 function Register(props) {
     const cookies = get_cookie("cookies_cerveau");
-    if(cookies) window.location.href = "/portefeuil";
+    if(cookies) return window.location.href = "/portefeuil";
     const sendEmali=eventClick=>{
+        alert()
         const formData = new FormData();
         const button_event = eventClick.target;
         button_event.hidden=true;
@@ -42,6 +43,10 @@ function Register(props) {
         .then(res=>res.json())
         .then(success=>{
             if(success.error){
+                input_required.forEach(input=>input.disabled=false);
+                eventClick.target.disabled=false;
+                eventClick.target.hidden=false;
+
                 message_1.classList.add("empty");
                 message_1.innerHTML = success.error;
                 message_1.hidden = false;
@@ -118,7 +123,9 @@ function Register(props) {
                 })
 
             }else{
+                input_required.forEach(input=>input.disabled=false);
                 eventClick.target.disabled=false;
+                eventClick.target.hidden=false;
                 message_2.innerHTML = `Service momentanement indisponible.`;
             }
         })

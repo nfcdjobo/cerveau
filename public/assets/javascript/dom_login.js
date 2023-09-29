@@ -4,15 +4,7 @@ document.addEventListener("DOMContentLoaded", ev => {
 
 }, false);
 
-
-
-
-
 window.addEventListener("load", ev => {
-
-
-
-
     setTimeout(() => {
 
         $(".next").click(function (event) {
@@ -31,7 +23,7 @@ window.addEventListener("load", ev => {
             if (!_option) return false;
         });
 
-        if (window.location.href.includes("accueil") || window.location.href.includes("portefeuil") || window.location.href.includes("historiqueTransaction") || window.location.href.includes("historiqueReception")) {
+        if (window.location.href.includes("accueil") || window.location.href.includes("profile") || window.location.href.includes("historiqueTransaction") || window.location.href.includes("historiqueReception")) {
 
             // const xValues = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160];
             // const xValues = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
@@ -94,8 +86,6 @@ window.addEventListener("load", ev => {
                         myTransactions.push(cinq.length ? cinq.reduce((a, b) => a.montant + b.montant) : 0);
                         myTransactions.push(six.length ? six.reduce((a, b) => a.montant + b.montant) : 0);
                         myTransactions.push(sept.length ? sept.reduce((a, b) => a.montant + b.montant) : 0);
-
-                        console.log("...........................1", myTransactions)
 
                         fetch(urlApi + "getReception", {
                             method: "GET",

@@ -78,8 +78,7 @@ function HistoriqueTransaction(props){
                                         <ol className="breadcrumb">
                                             <li className="breadcrumb-item active" aria-current="page"><a href="/accueil">Accueil</a></li>
                                             <li className="breadcrumb-item active" aria-current="page"><a href="/profile">Profile</a></li>
-                                            <li className="breadcrumb-item active" aria-current="page"><a href="/transaction">Transaction</a></li>
-                                            <li className="breadcrumb-item active" aria-current="page">Historique</li>
+                                            <li className="breadcrumb-item active" aria-current="page">Transaction</li>
                                         </ol>
                                     </nav>
                                 </div>

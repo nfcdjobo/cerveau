@@ -7,7 +7,7 @@ import QRcode from "./QRcode";
 import FormPortefeuil from "./FormPortefeuil";
 
 
-function Portefeuil(props){
+function Profile(props){
     const cookies = get_cookie("cookies_cerveau");
     if(!cookies) window.location.href = "/login";
     const [QRcodeState, QRcodeSetState] = useState([]);
@@ -34,7 +34,6 @@ function Portefeuil(props){
             <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full" data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
                 <Header /> 
                 <div className="page-wrapper">
-
                     <div className="page-breadcrumb">
                         <div className="row align-items-center">
                             <div className="col-5">
@@ -42,7 +41,7 @@ function Portefeuil(props){
                                 <div className="d-flex align-items-center">
                                     <nav aria-label="breadcrumb">
                                         <ol className="breadcrumb">
-                                            <li className="breadcrumb-item active" aria-current="page"><a href="/accueil">Accueil</a></li>
+                                            {/* <li className="breadcrumb-item active" aria-current="page"><a href="/accueil">Accueil</a></li> */}
                                             <li className="breadcrumb-item active" aria-current="page">Profile</li>
                                         </ol>
                                     </nav>
@@ -68,4 +67,4 @@ function Portefeuil(props){
     )
 }
 
-export default Portefeuil;
+export default Profile;

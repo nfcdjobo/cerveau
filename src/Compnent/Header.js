@@ -10,14 +10,22 @@ function Header(props) {
     const [QRcodeState, QRcodeSetState] = useState([]);
 
     useEffect(() => {
+        
         fetch(url_api + "getPortefeuil", {
             method: "GET",
             headers: { Authorization: cookies.token }
         })
             .then(res => res.json())
             .then(success => {
+                const _config =document.getElementById("config1");
+                const _config_ =document.getElementById("config2")
                 document.getElementById("tokenner").textContent = cookies.token;
                 document.getElementById("tokenner").className = url_api;
+                console.log("................................", success.portefeuil)
+                if(success.portefeuil.utilisateur.statut==1){
+                    if(_config) _config.remove();
+                    if(_config_)  _config_.remove();
+                }
                 QRcodeSetState(success.portefeuil)
             })
     }, []);
@@ -68,7 +76,7 @@ function Header(props) {
                                             <a className="dropdown-item" href="/profile"><i
                                                 className="ti-user m-r-5 m-l-5"></i> Mon profile</a>
 
-                                            <a className="dropdown-item" href="/configuration">
+                                            <a className="dropdown-item" href="/configuration" id="config1">
                                                 <i className="ti-settings m-r-5 m-l-5"></i> Configuration
                                             </a>
                                             <div className="dropdown-divider"></div>
@@ -79,26 +87,21 @@ function Header(props) {
                                     </div>
                                 </div>
                             </li>
-                            <li className="sidebar-item"> 
-                                <a className="sidebar-link waves-effect waves-dark sidebar-link" href="/portefeuil" aria-expanded="false">
-                                    <i className="mdi mdi-view-dashboard"></i>
-                                    <span className="hide-menu">Portefeuil</span>
-                                </a>
-                            </li>
-
-                            <li className="sidebar-item"> 
-                                <a className="sidebar-link waves-effect waves-dark sidebar-link" href="/portefeuil" aria-expanded="false">
-                                    <i className="mdi mdi-view-dashboard"></i>
-                                    <span className="hide-menu">Configuration</span>
-                                </a>
-                            </li>
-
                             <li className="sidebar-item">
                                 <a className="sidebar-link waves-effect waves-dark sidebar-link" href="/profile" aria-expanded="false">
                                     <i className="mdi mdi-account-network"></i>
                                     <span className="hide-menu">Profile</span>
                                 </a>
                             </li>
+
+                            <li className="sidebar-item" id="config2"> 
+                                <a className="sidebar-link waves-effect waves-dark sidebar-link" href="/configuration" aria-expanded="false">
+                                    <i className="mdi mdi-settings"></i>
+                                    <span className="hide-menu">Configuration</span>
+                                </a>
+                            </li>
+
+                            
 
                             <li className="sidebar-item">
                                 <a className="sidebar-link waves-effect waves-dark sidebar-link" href="/transaction" aria-expanded="false">
@@ -109,14 +112,14 @@ function Header(props) {
 
                             <li className="sidebar-item">
                                 <a className="sidebar-link waves-effect waves-dark sidebar-link" href="/historiqueTransaction" aria-expanded="false">
-                                    <i className="mdi mdi-face"></i>
+                                    <i className="mdi mdi-arrange-send-to-back"></i>
                                     <span className="hide-menu">Historique de Transaction</span>
                                 </a>
                             </li>
 
                             <li className="sidebar-item">
                                 <a className="sidebar-link waves-effect waves-dark sidebar-link" href="/historiqueReception" aria-expanded="false">
-                                    <i className="mdi mdi-face"></i>
+                                    <i className="mdi mdi-move-resize-variant"></i>
                                     <span className="hide-menu">Historique de Réception</span>
                                 </a>
                             </li>

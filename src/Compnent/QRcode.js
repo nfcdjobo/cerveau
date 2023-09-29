@@ -15,7 +15,7 @@ function QRcode(props){
                 <div className="card-body">
                     <center className="m-t-30">
                         <h4 className="card-title m-t-10">{!Array.isArray(props.portefeuil) ? props.portefeuil.utilisateur.nom +" "+ props.portefeuil.utilisateur.prenom : ""}</h4>
-                        <h6 className="card-subtitle">Développeur web</h6>
+                        <h6 className="card-subtitle"></h6>
                         <h6  className="card-subtitle">{!Array.isArray(props.portefeuil) ? props.portefeuil.utilisateur.email : ""}</h6>
                         <h6  className="card-subtitle">{!Array.isArray(props.portefeuil) ? props.portefeuil.utilisateur.telephone : ""}</h6>
                         <h4  className="card-title m-t-10">{!Array.isArray(props.portefeuil) ? props.portefeuil.numero_compte : ""}</h4>

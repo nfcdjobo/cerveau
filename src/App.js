@@ -5,8 +5,8 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Index from './Compnent/Index';
 import Login from './Compnent/Login';
 import Register from './Compnent/Register';
-import Accueil from './Compnent/Accueil';
-import Profile from './Compnent/Portefeuil';
+// import Accueil from './Compnent/Accueil';
+import Profile from './Compnent/Profile';
 import Transaction from './Compnent/Transaction';
 import Configuration from './Compnent/Configuration';
 import HistoriqueTransaction from './Compnent/HistoriqueTransaction';
@@ -21,7 +21,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 {/* <Route path="/accueil" element={<Accueil />} /> */}
-                <Route path="/portefeuil" element={<Profile />} />
+                <Route path="/profile" element={<Profile />} />
                 <Route path="/transaction" element={<Transaction />} />
                 <Route path="/configuration" element={<Configuration />} />
                 <Route path="/historiqueTransaction" element={<HistoriqueTransaction />} />

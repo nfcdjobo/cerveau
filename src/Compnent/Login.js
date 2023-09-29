@@ -57,7 +57,7 @@ function Login(props) {
                 message.classList.add("success");
                 save_cookie(success)
                 setTimeout(() => {
-                    window.location.href = "/portefeuil";
+                    window.location.href = "/profile";
                 }, 3000);
             }
         })
