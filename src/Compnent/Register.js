@@ -41,6 +41,7 @@ function Register(props) {
         })
         .then(res=>res.json())
         .then(success=>{
+            console.log("..................................", success);
             if(success.error){
                 input_required.forEach(input=>input.disabled=false);
                 eventClick.target.disabled=false;
@@ -132,7 +133,6 @@ function Register(props) {
 
     return (
         <form id="msform" encType="multipart/form-data">
-            
             <canvas id="myChart" className="campaign ct-charts" hidden></canvas>
             <fieldset id="fieldset-1">
             <a href="/" className="logos"><img src="https://m.media-amazon.com/images/I/61NN9SlsuuL._SX522_.jpg"></img></a>

@@ -1,10 +1,16 @@
 function QRcode(props){
     const portefeuil = props.portefeuil;
     if(!Array.isArray(props.portefeuil)){
+        // Ici on récupère la balise canvas
         const canvas = document.getElementById("qr-code");
+        // Puis on récupère le contexte de dessin sur notre composant canevas
         const ctx = canvas.getContext("2d");
+        // Ici on récupère la balise img dans laquelle se trouve notre image
         let img_QRcode = document.getElementById("img-QRcode");
+        // On écoute l'événemnent load sur notre balise image
         img_QRcode.addEventListener('load', function(){
+            // En fin on effectue une copie de notre balise image sur le contexte de dessin sur notre composant canevas
+            // absisce = 0, ordonnée= 0, largeur = 300px et hauteur = 150pc
             ctx.drawImage(img_QRcode, 0, 0, 300, 150);
         }, false);
     }
@@ -28,8 +34,11 @@ function QRcode(props){
                     <div className="col-lg-12 col-xlg-12 col-md-12">
                         <div className="card qr-code">
                             <div className="card-body text-center" id="card-body">
+                                {/* Je défini un composant canvas qui va contenir le déssin (image) */}
                                 <canvas id="qr-code"></canvas>
+                                {/* Je défini une div en display none (invisible) */}
                                 <div style={{display:'none'}}>
+                                    {/* Je défini la balise img qui réprésente notre image donc une copie de cette balise sera dans le composant canvas*/}
                                     <img id='img-QRcode' src={!Array.isArray(props.portefeuil) ? props.portefeuil.img_code_qr: ""}/>
                                 </div>
                             </div>
