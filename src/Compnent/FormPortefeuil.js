@@ -25,7 +25,7 @@ function FormPortefeuil(props){
                                 <div className="form-group">
                                     <label className="">Adresse Téléphonique</label>
                                     <div className="telephone">
-                                        <input type="tel" value={!Array.isArray(props.portefeuil) ? props.portefeuil.utilisateur.telephone : ""} name="telephone" className="form-control form-control-line" disabled required/>
+                                        <input type="tel" defaultValue={!Array.isArray(props.portefeuil) ? props.portefeuil.utilisateur.telephone : ""} name="telephone" className="form-control form-control-line" disabled required/>
                                     </div>
                                 </div>
                             </div>
@@ -34,7 +34,7 @@ function FormPortefeuil(props){
                                 <div className="form-group">
                                     <label className="" htmlFor="password">Mot de passe</label>
                                     <div className="">
-                                        <input type="password" value={"0000000000"} name="password" className="form-control form-control-line" disabled required/>
+                                        <input type="password" defaultValue={"0000000000"} name="password" className="form-control form-control-line" disabled required/>
                                     </div>
                                 </div>
                             </div>
@@ -43,7 +43,7 @@ function FormPortefeuil(props){
                                 <div className="form-group">
                                     <label className="" htmlFor="pays">Pays résident</label>
                                     <div className="">
-                                        <input type="text" value={!Array.isArray(props.portefeuil) ? props.portefeuil.utilisateur.pays : ""} name="pays" className="form-control form-control-line" disabled required/>
+                                        <input type="text" defaultValue={!Array.isArray(props.portefeuil) ? props.portefeuil.utilisateur.pays : ""} name="pays" className="form-control form-control-line" disabled required/>
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@ function FormPortefeuil(props){
                                 <div className="form-group">
                                     <label className="nationalite">Nationalité</label>
                                     <div className="">
-                                        <input type="text" value={!Array.isArray(props.portefeuil) ? props.portefeuil.utilisateur.nationalite : ""} name="nationalite" className="form-control form-control-line" disabled required/>
+                                        <input type="text" defaultValue={!Array.isArray(props.portefeuil) ? props.portefeuil.utilisateur.nationalite : ""} name="nationalite" className="form-control form-control-line" disabled required/>
                                     </div>
                                 </div>
                             </div>
