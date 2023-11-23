@@ -87,12 +87,8 @@ function Login(props) {
                     <input type="password" name="secret" placeholder="Code de sécurité" required/>
                     <input type="submit" className="next action-button" value="Connexion"/>
                 </div>
-                <div className="message" hidden>2145</div>
+                <div className="message" hidden></div>
             </fieldset>
-
-            <div>USERNAME: <span>nfcdjobo@gmail.com</span></div>
-            <div>Mot de passe: <span>nfcDJ0B0@</span></div>
-            <div>Code validation: <span>704045812743407340738038417456</span></div>
         </form>
     
     )
