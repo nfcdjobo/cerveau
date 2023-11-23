@@ -123,14 +123,6 @@ function Header(props) {
                                     <span className="hide-menu">Historique de Réception</span>
                                 </a>
                             </li>
-                            <hr/>
-                            <li className="sidebar-item">
-                            <div>USERNAME2: <span>bokafranck2001@gmail.com</span></div>
-                            <div>Mot de passe: <span>00000000</span></div>
-                            <div>Code validation: <span>187673167920021719340253701775</span></div>
-                            <div>Numero Compte: <span>PQ4ZQ9TRW3KTZOOB98SE94NSJ64M7T</span></div>
-
-                            </li>
                         </ul>
                     </nav>
                     <div id="tokenner" style={{display: "none"}}></div>
